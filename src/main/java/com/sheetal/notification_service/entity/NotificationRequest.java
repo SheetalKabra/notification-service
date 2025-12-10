@@ -26,6 +26,8 @@ public class NotificationRequest {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "template_id", nullable = false)
     private NotificationTemplate template;
+    @Column(name="recipient_details", columnDefinition = "JSON", nullable = false)
+    private String recipientDetails; //email/mobile/deviceToken etc
 
     @Column(name = "request_payload", columnDefinition = "JSON", nullable = false)
     private String requestPayload;

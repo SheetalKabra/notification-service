@@ -31,6 +31,8 @@ public class NotificationHistory {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "status_id", nullable = false)
     private NotificationStatusEntity status;
+    @Column(name = "recipient_details", columnDefinition = "JSON", nullable = false)
+    private String recipientDetails;
     @Column(name = "request_body", columnDefinition = "JSON", nullable = false)
     private String requestBody;
 
