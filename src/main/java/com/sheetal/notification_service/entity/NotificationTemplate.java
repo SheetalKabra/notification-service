@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "notification_template",
             uniqueConstraints = @UniqueConstraint(
-                    columnNames = {"tenant_id", "channel_id", "type_id", "mode_id"}
+                    columnNames = {"tenant_id", "channel_id", "mode_id", "template_key"}
             ))
 public class NotificationTemplate {
     @Id
@@ -25,10 +25,15 @@ public class NotificationTemplate {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "mode_id", nullable = false)
     private NotificationModeEntity mode;
+    @Column(name = "template_key", nullable = false, length = 100)
+    private String templateKey; // OTP, WELCOME, ORDER_PLACED etc.
 
     @Column(name = "template_body", columnDefinition = "TEXT", nullable = false)
     private String templateBody;
     private String subject;
+
+    @Column(name="variables_json", columnDefinition = "JSON", nullable = false)
+    private String variablesJson;
 
     @Column(name = "created_at", updatable = false)
     private LocalDateTime createdAt;
