@@ -12,8 +12,9 @@ public class Tenant {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(unique = true, nullable = false)
     private String tenantName;
-    @Column(unique = true, nullable = false, length = 200)
+    @Column(unique = true, nullable = false, length = 8)
     private String tenantKey;
 
     @CreatedDate
