@@ -27,9 +27,6 @@ public class NotificationHistory {
     @JoinColumn(name = "mode_id", nullable = false)
     private NotificationModeEntity mode;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "type_id", nullable = false)
-    private NotificationTypeEntity type;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "status_id", nullable = false)

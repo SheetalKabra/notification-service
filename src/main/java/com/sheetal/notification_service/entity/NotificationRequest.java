@@ -24,11 +24,6 @@ public class NotificationRequest {
     private NotificationModeEntity mode;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "type_id", nullable = false)
-    private NotificationTypeEntity type;
-
-
-    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "template_id", nullable = false)
     private NotificationTemplate template;
 

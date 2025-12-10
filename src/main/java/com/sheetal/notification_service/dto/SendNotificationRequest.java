@@ -2,7 +2,6 @@ package com.sheetal.notification_service.dto;
 
 import com.sheetal.notification_service.entity.NotificationChannel;
 import com.sheetal.notification_service.entity.NotificationMode;
-import com.sheetal.notification_service.entity.NotificationType;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 import lombok.Getter;
@@ -20,8 +19,6 @@ public class SendNotificationRequest {
     private NotificationChannel channel;
     @NotBlank(message = "Notification mode is required.")
     private NotificationMode mode;
-    @NotBlank(message = "Notification type is required.")
-    private NotificationType type;
     private Map<String, Object> data;
     private ScheduleRequest schedule;
 
@@ -47,14 +44,6 @@ public class SendNotificationRequest {
 
     public void setMode(NotificationMode mode) {
         this.mode = mode;
-    }
-
-    public NotificationType getType() {
-        return type;
-    }
-
-    public void setType(NotificationType type) {
-        this.type = type;
     }
 
     public Map<String, Object> getData() {

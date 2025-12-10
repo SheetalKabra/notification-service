@@ -26,10 +26,6 @@ public class NotificationTemplate {
     @JoinColumn(name = "mode_id", nullable = false)
     private NotificationModeEntity mode;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "type_id", nullable = false)
-    private NotificationTypeEntity type;
-
     @Column(name = "template_body", columnDefinition = "TEXT", nullable = false)
     private String templateBody;
     private String subject;
